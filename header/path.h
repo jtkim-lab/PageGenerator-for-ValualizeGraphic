@@ -13,6 +13,8 @@
 #define PATH_INDEX_FRONT PATH_TEMPLATES "index-front.html"
 #define PATH_INDEX_LAST PATH_TEMPLATES "index-last.html"
 #define PATH_INDEX_MIDDLE PATH_TEMPLATES "index-middle.html"
+#define PATH_IMAGE_FRONT PATH_TEMPLATES "image-front.html"
+#define PATH_IMAGE_LAST PATH_TEMPLATES "image-last.html"
 #define PATH_INDEX PATH_GRAPHIC "index.html"
 #define PATH_HEADER PATH_PAGEGENERATOR "header/"
 

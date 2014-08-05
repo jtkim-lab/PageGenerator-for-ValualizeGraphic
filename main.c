@@ -10,13 +10,17 @@ int main()
 	FILE* indexFrontFile;
 	FILE* indexMiddleFile;
 	FILE* indexLastFile;
+	FILE* imageFrontFile;
+	FILE* imageLastFile;
 
 	FILE* allTagsFile;
 	FILE* weeksTagsFile;
 
 	FILE* indexFile;
+	FILE* imageFile;
 
 	char command[MAX_COMMAND];
+	char imagePath[MAX_PATH];
 
 	char htmlReader[MAX_READER];
 
@@ -72,11 +76,38 @@ int main()
 		strcat(htmlWriter, imgWriter);
 		strcat(htmlWriter, htmlFourWriter);
 
+		strcpy(imagePath, PATH_GRAPHIC_IMAGES);
+		strcat(imagePath, imgWriter);
+		strcat(imagePath, ".html");
+
+		imageFile = fopen(imagePath, "w");
+
+		imageFrontFile = fopen(PATH_IMAGE_FRONT, "r");
+		imageLastFile = fopen(PATH_IMAGE_LAST, "r");
+
+		while(fgets(htmlReader, MAX_BLOCK, imageFrontFile) != NULL)
+		{
+			fputs(htmlReader, imageFile);
+		}
+
+		fprintf(imageFile, "%s", "\"");
+		fprintf(imageFile, "%s", imgWriter);
+		fprintf(imageFile, "%s", "\"");
+
+		while(fgets(htmlReader, MAX_BLOCK, imageLastFile) != NULL)
+		{
+			fputs(htmlReader, imageFile);
+		}
+
 		if (imgCount == 1)
 			strcpy(previewWriter, imgWriter);
 
 		fprintf(indexFile, "%s", htmlWriter);
 		imgCount++;
+
+		fclose(imageFile);
+		fclose(imageFrontFile);
+		fclose(imageLastFile);
 	}
 
 	while(fgets(htmlReader, MAX_BLOCK, indexMiddleFile) != NULL)
@@ -92,6 +123,12 @@ int main()
 	{
 		fputs(htmlReader, indexFile);
 	}
+
+	fclose(indexFrontFile);
+	fclose(indexMiddleFile);
+	fclose(indexLastFile);
+	fclose(indexFile);
+	fclose(allTagsFile);
 
 	return 0;
 }

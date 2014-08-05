@@ -1,0 +1,37 @@
+ alt="No Image Loaded"/ onclick="clickImage()">
+
+<script>
+
+function clickImage()
+{
+var src=document.getElementById("preview").src;
+
+var link=src+".html";
+
+window.location=link;
+}
+
+</script>
+
+</div>
+</div>
+
+<br/>
+
+<div id="copyright" align="center" style="width:100%">
+
+<p><small><b>Copyright 2014 <a href="http://graphic.valualize.com">Valualize Graphic</a></b></small></p>
+
+<script>
+
+var fromTop = document.documentElement.scrollTop && (document.getElementById("headline").clientHeight+document.getElementById("thumbnails").offsetHeight);
+
+documnet.getElementById("copyright").style.top=fromTop;
+
+</script>
+ 
+</div>
+
+</body>
+
+</html>
