@@ -58,6 +58,9 @@ int main()
 
 	while(fscanf(allTagsFile, "%s", imgWriter) != EOF)
 	{
+		if(imgCount > 5)
+			break;
+
 		strcpy(htmlWriter, htmlOneWriter);
 
 		sprintf(imgCountWriter, "%d", imgCount);
