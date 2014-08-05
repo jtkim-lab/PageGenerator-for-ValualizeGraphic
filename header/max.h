@@ -4,5 +4,7 @@
 #define MAX_COMMAND 500 
 #define MAX_READER 1000
 #define MAX_BLOCK MAX_READER+1
+#define MAX_WRITER 1000
+#define MAX_COMMAND 500
 
 #endif
