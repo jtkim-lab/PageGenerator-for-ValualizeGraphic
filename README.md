@@ -1,2 +1,2 @@
-PageGenerator_for_Valualize_Graphic
+PageGenerator-for-ValualizeGraphic
 ===================================
