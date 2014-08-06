@@ -66,15 +66,15 @@ int main()
 		fputs(htmlReader, indexFile);
 	}
 
-	strcpy(htmlOneWriter, "\n<img onmouseover=\"changePosition('img");
+	strcpy(htmlOneWriter, "\n<tr><img onmouseover=\"changePosition('img");
 	strcpy(htmlTwoWriter, "')\" id=\"img");
 	strcpy(htmlThreeWriter, "\" src=\"images\\");
-	strcpy(htmlFourWriter, "\" alt=\"Image Not Loaded\"/>");
+	strcpy(htmlFourWriter, "\" alt=\"Image Not Loaded\"/></tr>");
 
 	while(fscanf(allTagsFile, "%s", imgWriter) != EOF)
 	{
-		if(imgCount > 5)
-			break;
+	//	if(imgCount > 5)
+	//		break;
 
 		strcpy(htmlWriter, htmlOneWriter);
 
