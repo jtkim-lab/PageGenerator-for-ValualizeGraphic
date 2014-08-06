@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+Valualize Graphic
+</title>
+
+<base href="http://labs.jt-inc.net/graphic/">
+
+<style type="text/css">
+
+body 
+{
+margin: 0px;
+background: #1096eb;
+}
+
+h2 
+{
+position: absolute;
+width: 100%;
+top: 10px;
+text-align: center;
+color: #000;
+font-size: 500%;
+font-family: Helvetica;
+}
+
+.headline img
+{
+width: 100%;
+margin: auto;
+}
+
+.gallery
+{
+margin: auto;
+width: 90%;
+margin-top: 2%;
+}
+
+.thumbnails
+{
+float:left;
+width:25%;
+}
+
+.thumbnails img 
+{
+width: 83%;
+padding: 0px;
+margin: 0% 17% 5% 0%;
+float: left;
+border: 1px solid #000;
+}
+
+.thumbnails img:hover 
+{
+cursor:pointer;
+}
+
+.preview img 
+{
+margin: 0% 0% 3% 0%;
+padding: 0px;
+width: 74%;
+border: 1px solid #000;
+}
+
+.preview img:hover
+{
+cursor: pointer;
+}
+
+.whole img
+{
+margin: 0% 0% 3% 0%;
+padding: 0px;
+width: 100%;
+border: 1px solid #000;
+}
+
+.copyright
+{
+position: fixed;
+bottom: 0%;
+width: 100%;
+font-family: Helvetica;
+text-align: center;
+}
+
+</style>
+
+<script>
+
+function clickImage()
+{
+var src=document.getElementById("preview").src;
+var link=src+".html";
+
+window.location=link;
+}
+
+</script>
+
+<script>
+
+function changePosition(img)
+{
+var fromTop = window.pageYOffset || document.documentElement.scrollTop;
+var heightHeadline = document.getElementById("headline").clientHeight;
+var pos = fromTop-heightHeadline;
+
+document.getElementById("preview").src=document.getElementById(img).src;
+
+if (pos > 0)
+document.getElementById("preview").style.marginTop=pos+"px";
+else
+document.getElementById("preview").style.marginTop="0px";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div>
+<div class="headline">
+
+<img id="headline" src="images/Brand Assets/facebook_cover.png" alt="Valualize Graphic"/>
+<h2>Valualize Graphic</h2>
+
+</div>
+
+<div class="copyright">
+
+<p id="copyright"><small><b>Copyright &copy; 2014 <a href="http://graphic.valualize.com">Valualize Graphic</a></b></small></p>
+
+</div>
+
