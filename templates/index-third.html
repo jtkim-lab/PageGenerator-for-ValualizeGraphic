@@ -4,14 +4,21 @@
 </div>
 
 <script type="text/javascript">
+var count = 1;
 
-function yHandler()
+function addBottom()
 {
-	var wrap = document.getElementById("images");
-	var contentHeight = window.pageYOffset || document.documentElement.scollTop;
-	var yOffset = window.pageYOffset; 
-	var y = yOffset + window.innerHeight;
-	
-	if(y >= contentHeight)
+var fromTop = window.pageYOffset || document.documentElement.scrollTop;
+var pageHeight = document.documentElement.scrollHeight;
+var windowHeight = window.innerHeight;
+var pos = fromTop + windowHeight;
+var pos100 = fromTop + windowHeight + 30;
+var ele = document.getElementById("imagesTable");
+var temp = document.createElement("table");
+
+if(pos100 >= pageHeight)
+{
+	if(count == 1)
 	{
-		wrap.innerHTML += 
+		count += 1;
+	    ele.innerHTML +=
