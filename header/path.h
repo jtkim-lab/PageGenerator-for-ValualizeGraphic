@@ -14,6 +14,7 @@
 #define PATH_INDEX_FIRST PATH_TEMPLATES "index-first.html"
 #define PATH_INDEX_SECOND PATH_TEMPLATES "index-second.html"
 #define PATH_INDEX_THIRD PATH_TEMPLATES "index-third.html"
+#define PATH_INDEX_FOURTH PATH_TEMPLATES "index-fourth.html"
 #define PATH_IMAGE_FIRST PATH_TEMPLATES "image-first.html"
 #define PATH_IMAGE_SECOND PATH_TEMPLATES "image-second.html"
 #define PATH_INDEX PATH_GRAPHIC "index.html"

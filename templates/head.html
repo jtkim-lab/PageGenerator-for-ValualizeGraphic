@@ -125,6 +125,7 @@ document.getElementById("preview").style.marginTop="0px";
 
 <script type="text/javascript" src="js/jquery.endless-scroll.js"></script>
 <script type="text/javascript" charset="utf-8">
+
 $(function() {
 		$(document).endlessScroll({
 bottomPixels: 500,
@@ -132,32 +133,6 @@ fireDelay: 10,
 callback: function(i) {
 var last_img = $("table#images tr:last");
 last_img.after(last_img.pre().prev().prev().prev().prev().clone());
-}
-});
-});
-</script>
-
-<script type="text/javascript" charset="utf-8">
-$(function() {
-		$(document).endlessScroll({
-bottomPixels: 500,
-fireDelay: 10,
-callback: function(i) {
-var last_img = $("table#images tr:last");
-last_img.after(last_img.pre().prev().prev().prev().prev().pre().prev().prev().prev().prev().clone());
-}
-});
-});
-</script>
-
-<script type="text/javascript" charset="utf-8">
-$(function() {
-		$(document).endlessScroll({
-bottomPixels: 500,
-fireDelay: 10,
-callback: function(i) {
-var last_img = $("table#images tr:last");
-last_img.after(last_img.pre().prev().prev().prev().prev().pre().prev().prev().prev().prev().pre().prev().prev().prev().prev().clone());
 }
 });
 });
