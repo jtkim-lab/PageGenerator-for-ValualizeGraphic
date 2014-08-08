@@ -21,6 +21,8 @@ int main()
 	FILE* imageFirstFile;
 	FILE* imageSecondFile;
 
+	FILE* allInfoFile;
+
 	FILE* allTagsFile;
 	FILE* weeksTagsFile;
 
@@ -31,6 +33,8 @@ int main()
 	char imagePath[MAX_PATH];
 
 	char htmlReader[MAX_READER];
+	char imageReader[MAX_READER];
+	char imageInfoReader[MAX_READER];
 
 	char htmlOneWriter[MAX_WRITER];
 	char htmlTwoWriter[MAX_WRITER];
@@ -47,6 +51,7 @@ int main()
 	char previewWriter[MAX_WRITER];
 	char imgCountWriter[MAX_WRITER];
 	char imgWriter[MAX_WRITER];
+	char imgInfoWriter[MAX_WRITER];
 
 	char imgStackWriter1[MAX_STORAGE];
 	char imgStackWriter2[MAX_STORAGE];
@@ -443,6 +448,31 @@ int main()
 
 	fclose(indexLastFile);
 	fclose(indexFile);
+	fclose(allTagsFile);
+
+	allTagsFile = fopen(PATH_ALL_TAGS, "r");
+	allInfoFile = fopen(PATH_ALL_INFO, "r");
+
+	while(fscanf(allTagsFile, "%s", imageReader) != EOF)
+	{
+		int i;
+
+		fgets(imageInfoReader, MAX_READER, allInfoFile);
+		
+		i = strlen(imageInfoReader);
+		imageInfoReader[i-1] = '\0';
+
+		memset(imagePath, '\0', MAX_PATH);
+
+		strcpy(imagePath, PATH_GRAPHIC_IMAGES);
+		strcat(imagePath, imageReader);
+		strcat(imagePath, ".html");
+
+		imageFile = fopen(imagePath, "a");
+
+		fprintf(imageFile, "\n\n<script>document.title = \"%s | Valualize Graphic\";</script>", imageInfoReader);
+	}
+
 	fclose(allTagsFile);
 
 	return 0;

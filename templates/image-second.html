@@ -1,6 +1,15 @@
  alt="No Image Loaded"/ onclick="clickImage()">
 
-<iframe id="facebook" src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Flabs.jt-inc.net%2Fgraphic%2Findex.html&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="float:right; margin:0% 0% 5% 0%; border:none; overflow:hidden; width:10%; height:21px;" allowTransparency="true"></iframe>
+<iframe id="facebook" src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fgraphic.valualize.com&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="float:right; margin:0% 0% 5% 0%; border:none; overflow:hidden; width:10%; height:21px;" allowTransparency="true"></iframe>
+
+<script>
+
+var ifr = document.getElementById("facebook");
+var facebookFrontURL = "//www.facebook.com/plugins/like.php?href="
+var facebookLastURL = "&width&layout=button_count&action=like&show_faces=true&share=true&height=21"
+ifr.src = facebookFrontURL + document.URL + facebookLastURL;
+
+</script>
 
 </div>
 </div>

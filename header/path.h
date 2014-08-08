@@ -1,7 +1,7 @@
 #ifndef __PATH_H__
 #define __PATH_H__
 
-#define PATH_LABS "/var/www/labs/"
+#define PATH_LABS "/var/www/"
 #define PATH_GRAPHIC PATH_LABS "graphic/"
 #define PATH_WORKSPACE "/home/jungtaek/workspace/"
 #define PATH_PAGEGENERATOR PATH_WORKSPACE "PageGenerator-for-ValualizeGraphic/"
@@ -9,6 +9,8 @@
 #define PATH_GRAPHIC_IMAGES PATH_GRAPHIC "images/"
 #define PATH_TAGS PATH_PAGEGENERATOR "tags/"
 #define PATH_ALL_TAGS PATH_TAGS "all.list"
+#define PATH_INFO PATH_PAGEGENERATOR "info/"
+#define PATH_ALL_INFO PATH_INFO "all.info"
 #define PATH_TEMPLATES PATH_PAGEGENERATOR "templates/"
 #define PATH_HEAD PATH_TEMPLATES "head.html"
 #define PATH_INDEX_FIRST PATH_TEMPLATES "index-first.html"
