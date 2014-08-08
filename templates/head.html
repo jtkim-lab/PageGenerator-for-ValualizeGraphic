@@ -93,6 +93,16 @@ font-family: Helvetica;
 text-align: center;
 }
 
+#facebook
+{
+min-width: 120px;
+}
+
+#imagesTable
+{
+margin: 0% 0% 15% 0%;
+}
+
 </style>
 
 <script>
@@ -115,7 +125,10 @@ var fromTop = window.pageYOffset || document.documentElement.scrollTop;
 var heightHeadline = document.getElementById("headline").clientHeight;
 var pos = fromTop-heightHeadline;
 
-document.getElementById("preview").src=document.getElementById(img).src;
+var temp = document.getElementById(img).src;
+var arr = temp.split("Thumb_");
+
+document.getElementById("preview").src="images/" + arr[1];
 
 if (pos > 0)
 document.getElementById("preview").style.marginTop=pos+"px";

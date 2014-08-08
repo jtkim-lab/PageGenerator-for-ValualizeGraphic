@@ -14,8 +14,10 @@ int main()
 	FILE* indexThirdFile;
 	FILE* indexFourthFile;
 	FILE* indexFifthFile;
+	FILE* indexSixthFile;
 
 	FILE* indexLastFile;
+	
 	FILE* imageFirstFile;
 	FILE* imageSecondFile;
 
@@ -40,6 +42,7 @@ int main()
 	char htmlAddThreeWriter[MAX_WRITER];
 	char htmlAddFourWriter[MAX_WRITER];
 
+	char thumbWriter[MAX_WRITER];
 	char htmlWriter[MAX_WRITER];
 	char previewWriter[MAX_WRITER];
 	char imgCountWriter[MAX_WRITER];
@@ -48,6 +51,7 @@ int main()
 	char imgStackWriter1[MAX_STORAGE];
 	char imgStackWriter2[MAX_STORAGE];
 	char imgStackWriter3[MAX_STORAGE];
+	char imgStackWriter4[MAX_STORAGE];
 
 	int imgCount = 1;
 
@@ -64,6 +68,7 @@ int main()
 	indexThirdFile = fopen(PATH_INDEX_THIRD, "r");
 	indexFourthFile = fopen(PATH_INDEX_FOURTH, "r");
 	indexFifthFile = fopen(PATH_INDEX_FIFTH, "r");
+	indexSixthFile = fopen(PATH_INDEX_SIXTH, "r");
 
 	indexLastFile = fopen(PATH_INDEX_LAST, "r");
 
@@ -83,25 +88,26 @@ int main()
 		fputs(htmlReader, indexFile);
 	}
 
-	strcpy(htmlOneWriter, "\n<tr><img onmouseover=\"changePosition('img");
+	strcpy(htmlOneWriter, "\n<tr><img onclick=\"changePosition('img");
 	strcpy(htmlTwoWriter, "')\" id=\"img");
-	strcpy(htmlThreeWriter, "\" src=\"images\\");
+	strcpy(htmlThreeWriter, "\" src=\"images/");
 	strcpy(htmlFourWriter, "\" alt=\"Image Not Loaded\"/></tr>");
 
-	strcpy(htmlAddOneWriter, "\\n<tr><img onmouseover=\\\"changePosition(\\'img");
+	strcpy(htmlAddOneWriter, "\\n<tr><img onclick=\\\"changePosition(\\'img");
 	strcpy(htmlAddTwoWriter, "\\')\\\" id=\\\"img");
-	strcpy(htmlAddThreeWriter, "\\\" src=\\\"images\\\\");
+	strcpy(htmlAddThreeWriter, "\\\" src=\\\"images/");
 	strcpy(htmlAddFourWriter, "\\\" alt=\\\"Image Not Loaded\\\"/></tr>");
 
+	strcpy(thumbWriter, "Thumb/Thumb_");
 
 	memset(imgStackWriter1, '\0', MAX_STORAGE);
 	memset(imgStackWriter2, '\0', MAX_STORAGE);
 	memset(imgStackWriter3, '\0', MAX_STORAGE);
-
+	memset(imgStackWriter4, '\0', MAX_STORAGE);
 
 	while(fscanf(allTagsFile, "%s", imgWriter) != EOF)
 	{
-		if(imgCount > 15)
+		if(imgCount > 20)
 		{
 			strcpy(htmlWriter, htmlAddOneWriter);
 
@@ -111,6 +117,7 @@ int main()
 			strcat(htmlWriter, htmlAddTwoWriter);
 			strcat(htmlWriter, imgCountWriter);
 			strcat(htmlWriter, htmlAddThreeWriter);
+			strcat(htmlWriter, thumbWriter);
 			strcat(htmlWriter, imgWriter);
 			strcat(htmlWriter, htmlAddFourWriter);
 
@@ -136,9 +143,64 @@ int main()
 				fputs(htmlReader, imageFile);
 			}
 
-			fprintf(imageFile, "%s", "\\\"images\\\\");
+			fprintf(imageFile, "%s", "\"images/");
 			fprintf(imageFile, "%s", imgWriter);
-			fprintf(imageFile, "%s", "\\\"");
+			fprintf(imageFile, "%s", "\"");
+
+			while(fgets(htmlReader, MAX_BLOCK, imageSecondFile) != NULL)
+			{
+				fputs(htmlReader, imageFile);
+			}
+
+			if (imgCount == 1)
+				strcpy(previewWriter, imgWriter);
+
+			strcat(imgStackWriter4, htmlWriter);
+			imgCount++;
+
+			fclose(imageFile);
+			fclose(imageFirstFile);
+			fclose(imageSecondFile);
+		}
+		else if(imgCount > 15)
+		{
+			strcpy(htmlWriter, htmlAddOneWriter);
+
+			sprintf(imgCountWriter, "%d", imgCount);
+		
+			strcat(htmlWriter, imgCountWriter);
+			strcat(htmlWriter, htmlAddTwoWriter);
+			strcat(htmlWriter, imgCountWriter);
+			strcat(htmlWriter, htmlAddThreeWriter);
+			strcat(htmlWriter, thumbWriter);
+			strcat(htmlWriter, imgWriter);
+			strcat(htmlWriter, htmlAddFourWriter);
+
+			strcpy(imagePath, PATH_GRAPHIC_IMAGES);
+			strcat(imagePath, imgWriter);
+			strcat(imagePath, ".html");
+
+			imageFile = fopen(imagePath, "w");
+
+			headFile = fopen(PATH_HEAD, "r");
+			imageFirstFile = fopen(PATH_IMAGE_FIRST, "r");
+			imageSecondFile = fopen(PATH_IMAGE_SECOND, "r");
+
+			while(fgets(htmlReader, MAX_BLOCK, headFile) != NULL)
+			{
+				fputs(htmlReader, imageFile);
+			}
+
+			fclose(headFile);
+
+			while(fgets(htmlReader, MAX_BLOCK, imageFirstFile) != NULL)
+			{
+				fputs(htmlReader, imageFile);
+			}
+
+			fprintf(imageFile, "%s", "\"images/");
+			fprintf(imageFile, "%s", imgWriter);
+			fprintf(imageFile, "%s", "\"");
 
 			while(fgets(htmlReader, MAX_BLOCK, imageSecondFile) != NULL)
 			{
@@ -165,6 +227,7 @@ int main()
 			strcat(htmlWriter, htmlAddTwoWriter);
 			strcat(htmlWriter, imgCountWriter);
 			strcat(htmlWriter, htmlAddThreeWriter);
+			strcat(htmlWriter, thumbWriter);
 			strcat(htmlWriter, imgWriter);
 			strcat(htmlWriter, htmlAddFourWriter);
 
@@ -190,9 +253,9 @@ int main()
 				fputs(htmlReader, imageFile);
 			}
 
-			fprintf(imageFile, "%s", "\\\"images\\\\");
+			fprintf(imageFile, "%s", "\"images/");
 			fprintf(imageFile, "%s", imgWriter);
-			fprintf(imageFile, "%s", "\\\"");
+			fprintf(imageFile, "%s", "\"");
 
 			while(fgets(htmlReader, MAX_BLOCK, imageSecondFile) != NULL)
 			{
@@ -219,6 +282,7 @@ int main()
 			strcat(htmlWriter, htmlAddTwoWriter);
 			strcat(htmlWriter, imgCountWriter);
 			strcat(htmlWriter, htmlAddThreeWriter);
+			strcat(htmlWriter, thumbWriter);
 			strcat(htmlWriter, imgWriter);
 			strcat(htmlWriter, htmlAddFourWriter);
 
@@ -244,9 +308,9 @@ int main()
 				fputs(htmlReader, imageFile);
 			}
 
-			fprintf(imageFile, "%s", "\\\"images\\\\");
+			fprintf(imageFile, "%s", "\"images/");
 			fprintf(imageFile, "%s", imgWriter);
-			fprintf(imageFile, "%s", "\\\"");
+			fprintf(imageFile, "%s", "\"");
 
 			while(fgets(htmlReader, MAX_BLOCK, imageSecondFile) != NULL)
 			{
@@ -273,6 +337,7 @@ int main()
 			strcat(htmlWriter, htmlTwoWriter);
 			strcat(htmlWriter, imgCountWriter);
 			strcat(htmlWriter, htmlThreeWriter);
+			strcat(htmlWriter, thumbWriter);
 			strcat(htmlWriter, imgWriter);
 			strcat(htmlWriter, htmlFourWriter);
 
@@ -298,7 +363,7 @@ int main()
 				fputs(htmlReader, imageFile);
 			}
 	
-			fprintf(imageFile, "%s", "\"images\\");
+			fprintf(imageFile, "%s", "\"images/");
 			fprintf(imageFile, "%s", imgWriter);
 			fprintf(imageFile, "%s", "\"");
 	
@@ -355,6 +420,15 @@ int main()
 	fprintf(indexFile, "%s", imgStackWriter3);
 	fprintf(indexFile, "\";");
 
+	while(fgets(htmlReader, MAX_BLOCK, indexSixthFile) != NULL)
+	{
+		fputs(htmlReader, indexFile);
+	}
+
+	fprintf(indexFile, "\"");
+	fprintf(indexFile, "%s", imgStackWriter4);
+	fprintf(indexFile, "\";");
+
 	while(fgets(htmlReader, MAX_BLOCK, indexLastFile) != NULL)
 	{
 		fputs(htmlReader, indexFile);
@@ -365,6 +439,7 @@ int main()
 	fclose(indexThirdFile);
 	fclose(indexFourthFile);
 	fclose(indexFifthFile);
+	fclose(indexSixthFile);
 
 	fclose(indexLastFile);
 	fclose(indexFile);
