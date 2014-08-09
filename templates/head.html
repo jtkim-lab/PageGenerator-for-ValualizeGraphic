@@ -112,7 +112,7 @@ Valualize Graphic
 body 
 {
 margin: 0px;
-background: #1096eb;
+background: #f3f1ee;
 }
 
 h2 
@@ -126,10 +126,24 @@ font-size: 500%;
 font-family: Helvetica;
 }
 
+.headline
+{
+background: #f3f1ee;
+height:340px;
+}
+
+.headline p
+{
+height:340px;
+}
+
 .headline img
 {
-width: 100%;
 margin: auto;
+margin-left: auto;
+margin-right: auto;
+max-height:50%;
+padding: 85px 0px 85px 0px;
 }
 
 .gallery
@@ -182,16 +196,28 @@ border: 1px solid #000;
 
 .copyright
 {
+background: #1096eb;
 position: fixed;
 bottom: 0%;
 width: 100%;
+height: 30px;
 font-family: Helvetica;
-text-align: center;
+color: #fff;
+text-align:center;
+margin: auto;
+padding:0px;
+}
+
+.copyright p
+{
+margin: 5px;;
+vertical-align:middle;
+padding: 0px;
 }
 
 #facebook
 {
-min-width: 120px;
+min-width: 130px;
 }
 
 #imagesTable
@@ -234,14 +260,27 @@ document.getElementById("preview").style.marginTop="0px";
 
 </script>
 
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-53655679-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
 </head>
 
 <body onscroll="addBottom()">
 
 <div>
 <div class="headline">
+<p style="text-align:center">
+<a href="index.html"><img id="headline" src="images/Brand Assets/web_logo2.svg" alt="Valualize Graphic" onerror="this.onerror=null; this.src='web_logo.png'"></a>
+</p>
 
-<a href="index.html"><img id="headline" src="images/Brand Assets/facebook_cover.png" alt="Valualize Graphic"/></a>
 <!--
 <h2>Valualize Graphic</h2>
 -->
@@ -249,7 +288,7 @@ document.getElementById("preview").style.marginTop="0px";
 
 <div class="copyright">
 
-<p id="copyright"><small><b>Copyright &copy; 2014 <a href="http://graphic.valualize.com">Valualize Graphic</a></b></small></p>
+<p id="copyright"><small><b>Copyright &copy; 2014 Valualize Graphic</a></b></small></p>
 
 </div>
 
