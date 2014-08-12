@@ -107,6 +107,8 @@ Valualize Graphic
 
 <link rel="icon" type"image/ico" href="images/Brand Assets/Favicon.ico">
 
+<meta property="og:image" content="http://graphic.valualize.com/images/140808_MC.png">
+
 <style type="text/css">
 
 body 
@@ -210,7 +212,7 @@ padding:0px;
 
 .copyright p
 {
-margin: 5px;;
+margin:5px;
 vertical-align:middle;
 padding: 0px;
 }
@@ -226,6 +228,12 @@ margin: 0% 0% 15% 0%;
 }
 
 </style>
+
+<script>
+
+$("meta[property='og:image']").attr("content", $(document).getElementById("whole").src);
+
+</script>
 
 <script>
 
