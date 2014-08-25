@@ -19,6 +19,9 @@
 #define PATH_INDEX_FOURTH PATH_TEMPLATES "index-fourth.html"
 #define PATH_INDEX_FIFTH PATH_TEMPLATES "index-fifth.html"
 #define PATH_INDEX_SIXTH PATH_TEMPLATES "index-sixth.html"
+#define PATH_INDEX_SEVENTH PATH_TEMPLATES "index-seventh.html"
+#define PATH_INDEX_EIGTH PATH_TEMPLATES "index-eigth.html"
+
 #define PATH_INDEX_LAST PATH_TEMPLATES "index-last.html"
 #define PATH_IMAGE_FIRST PATH_TEMPLATES "image-first.html"
 #define PATH_IMAGE_SECOND PATH_TEMPLATES "image-second.html"
